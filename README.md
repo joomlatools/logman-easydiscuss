@@ -7,18 +7,11 @@ Plugin for integrating [EasyDiscuss](http://stackideas.com/easydiscuss/) with LO
 
 ### Composer
 
-You can install this package using [Composer](https://getcomposer.org/). Create a `composer.json` file inside the root directory of your Joomla! site containing the following code:
+You can install this package using [Composer](https://getcomposer.org/) by simply going to the root directory of your Joomla site using the command line and executing the following command:
 
 ```
-{
-    "require": {        
-        "joomlatools/plg_logman_easydiscuss": "dev-master"
-    },
-    "minimum-stability": "dev"
-}
+composer require joomlatools/logman-easydiscuss:*
 ```
-
-Run composer install.
 
 ### Package
 
@@ -48,4 +41,4 @@ The following EasyDiscuss actions are currently logged:
 
 ## Limitations
 
-* Delete actions are only logged when deleting items from the fronted interface. Events are not triggered when deleting posts and replies from the backend.
+* At the moment and while using the latest stable version of EasyDiscuss at this date (v3.2.9744), delete actions are only logged when deleting items from the fronted interface. Events are not triggered when deleting posts and replies from the backend.
