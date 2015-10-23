@@ -12,7 +12,7 @@
     <description>PLG_LOGMAN_EASYDISCUSS_DESC</description>
 
     <files>
-        <filename plugin="config">easydiscuss.php</filename>
+        <filename plugin="easydiscuss">easydiscuss.php</filename>
         <folder>activity</folder>
         <folder>language</folder>
     </files>
@@ -20,6 +20,4 @@
     <config>
         <fields name="params" />
     </config>
-
-    <plugin type="logger" packages="easydiscuss"/>
 </extension>
