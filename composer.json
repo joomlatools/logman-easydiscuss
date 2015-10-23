@@ -1,5 +1,5 @@
 {
-  "name": "joomlatools/plg_logman_easydiscuss",
+  "name": "joomlatools/logman-easydiscuss",
   "type": "joomlatools-installer",
   "license": "GPLv3",
   "description": "Handles logging of EasyDiscuss events",
