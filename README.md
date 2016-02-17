@@ -1,7 +1,7 @@
 LOGman EasyDiscuss plugin
 ========================
 
-Plugin for integrating [EasyDiscuss](http://stackideas.com/easydiscuss/) with LOGman. [LOGman](http://joomlatools.com/logman) is a user analytics and audit trail solution for Joomla.
+Plugin for integrating [EasyDiscuss](http://stackideas.com/easydiscuss/) with LOGman. [LOGman](https://joomlatools.com/extensions/logman/) is a user analytics and audit trail solution for Joomla.
 
 ## Installation
 
