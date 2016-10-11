@@ -31,14 +31,12 @@ The following EasyDiscuss actions are currently logged:
 
 * Add
 * Edit
-* Delete
 
 ### Replies
 
 * Add
 * Edit
-* Delete
 
 ## Limitations
 
-* At the moment and while using the latest stable version of EasyDiscuss at this date (v3.2.9744), delete actions are only logged when deleting items from the fronted interface. Events are not triggered when deleting posts and replies from the backend.
+* At the moment and while using the latest stable version of EasyDiscuss at this date (v4.0.10), delete actions are not supported since no data is provided when triggering the onContentAfterDelete event.
