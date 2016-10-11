@@ -21,13 +21,6 @@ class PlgLogmanEasydiscuss extends ComLogmanPluginJoomla
 
     protected $_new_state = array();
 
-    protected function _initialize(KObjectConfig $config)
-    {
-        $config->append(array('resources' => array('post', 'reply')));
-
-        parent::_initialize($config);
-    }
-
     public function onContentBeforeSave($context, $data, $isNew)
     {
         if (is_array($data)) {
