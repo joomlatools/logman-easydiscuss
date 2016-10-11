@@ -27,7 +27,7 @@ class PlgLogmanEasydiscussActivityPost extends ComLogmanModelEntityActivity
     protected function _objectConfig(KObjectConfig $config)
     {
         $config->append(array(
-            'url'     => 'option=com_easydiscuss&view=post&task=edit&id=' . $this->row,
+            'url'     => array('admin' => 'option=com_easydiscuss&view=post&task=edit&id=' . $this->row),
             'subtype' => array('object' => true, 'objectName' => 'EasyDiscuss')
         ));
 

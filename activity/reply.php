@@ -27,7 +27,7 @@ class PlgLogmanEasydiscussActivityReply extends ComLogmanModelEntityActivity
     protected function _objectConfig(KObjectConfig $config)
     {
         $config->append(array(
-            'url'  => 'option=com_easydiscuss&view=post&task=edit&id=' . $this->row,
+            'url'  => array('admin' => 'option=com_easydiscuss&view=post&task=edit&id=' . $this->row),
             'type' => array(
                 'url'  => 'option=com_easydiscuss&view=post&task=edit&id=' . $this->row,
                 'find' => 'object'
@@ -43,7 +43,7 @@ class PlgLogmanEasydiscussActivityReply extends ComLogmanModelEntityActivity
 
         $data = array(
             'objectName' => 'post',
-            'url'        => 'option=com_easydiscuss&view=post&task=edit&id=' . $this->getMetadata()->parent->id,
+            'url'        => array('admin' => 'option=com_easydiscuss&view=post&task=edit&id=' . $this->getMetadata()->parent->id),
             'find'       => 'target',
             'type'       => array(
                 'object'     => true,
