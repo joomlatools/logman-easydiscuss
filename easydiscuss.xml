@@ -20,4 +20,21 @@
     <config>
         <fields name="params" />
     </config>
+
+    <resources>
+        <resource name="post">
+            <actions>
+                <action>add</action>
+                <action>edit</action>
+                <action>delete</action>
+            </actions>
+        </resource>
+        <resource name="reply">
+            <actions>
+                <action>add</action>
+                <action>edit</action>
+                <action>delete</action>
+            </actions>
+        </resource>
+    </resources>
 </extension>
