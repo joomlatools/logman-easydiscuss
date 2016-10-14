@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     LOGman
- * @copyright   Copyright (C) 2011 - 2015 Timble CVBA. (http://www.timble.net)
+ * @copyright   Copyright (C) 2011 - 2016 Timble CVBA. (http://www.timble.net)
  * @license     GNU GPLv3 <http://www.gnu.org/licenses/gpl.html>
  * @link        http://www.joomlatools.com
  */
@@ -20,13 +20,6 @@ class PlgLogmanEasydiscuss extends ComLogmanPluginJoomla
     protected $_data;
 
     protected $_new_state = array();
-
-    protected function _initialize(KObjectConfig $config)
-    {
-        $config->append(array('resources' => array('post', 'reply')));
-
-        parent::_initialize($config);
-    }
 
     public function onContentBeforeSave($context, $data, $isNew)
     {
@@ -49,11 +42,14 @@ class PlgLogmanEasydiscuss extends ComLogmanPluginJoomla
 
         $parts = explode('.', $context);
 
-        $parent_id = is_array($data) ? $data['parent_id'] : $data->parent_id;
+        if ($parts[0] == 'com_easydiscuss')
+        {
+            $parent_id = is_array($data) ? $data['parent_id'] : $data->parent_id;
 
-        // Fix context. Somtimes replies are triggered as posts.
-        if (isset($parts[1]) && ($parts[1] == 'post') && $parent_id) {
-            $context = $parts[0] . '.reply';
+            // Fix context. Sometimes replies are triggered as posts.
+            if (isset($parts[1]) && ($parts[1] == 'post') && $parent_id) {
+                $context = $parts[0] . '.reply';
+            }
         }
 
         return parent::onContentAfterSave($context, $data, $isNew);
@@ -61,16 +57,23 @@ class PlgLogmanEasydiscuss extends ComLogmanPluginJoomla
 
     public function onContentAfterDelete($context, $data)
     {
+        $result = false;
+
         $parts = explode('.', $context);
 
-        $parent_id = is_array($data) ? $data['parent_id'] : $data->parent_id;
+        if ($parts[0] == 'com_easydiscuss' && !is_null($data))
+        {
+            $parent_id = is_array($data) ? $data['parent_id'] : $data->parent_id;
 
-        // Fix context. Somtimes replies are triggered as posts.
-        if (isset($parts[1]) && ($parts[1] == 'post') && $parent_id) {
-            $context = $parts[0] . '.reply';
+            // Fix context. Somtimes replies are triggered as posts.
+            if (isset($parts[1]) && ($parts[1] == 'post') && $parent_id) {
+                $context = $parts[0] . '.reply';
+            }
+
+            $result = parent::onContentAfterDelete($context, $data);
         }
 
-        return parent::onContentAfterDelete($context, $data);
+        return $result;
     }
 
     protected function _getReplyObjectData($data, $event)
